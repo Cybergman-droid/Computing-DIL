@@ -1,6 +1,6 @@
 document.getElementById("calculator").addEventListener("click", calculator)
-document.getElementById("to-do_list").addEventListener("click", to_do_program)
-document.getElementById("ex3").addEventListener("click", ex3)
+document.getElementById("to_do_list").addEventListener("click", to_do_program)
+document.getElementById("cost_calculator").addEventListener("click", costCalculator)
 
 function calculator(){
     function add(a,b){
@@ -78,4 +78,26 @@ function to_do_program(){
         default:
             break;
     }
+}
+
+function costCalculator(){
+    let weight  = prompt('Enter the weight')
+    let volume  = prompt('Enter the volume')
+    let cost 
+    function getCost(weight,volume){
+        if(volume < 0.3 && weight < 4){
+            cost = 5
+        }
+
+        if(volume > weight){
+            cost = 20 * volume
+        } else {
+            cost = 2 * weight
+        }
+        
+        console.log(cost)
+    }
+
+    getCost(weight,volume)
+
 }
