@@ -146,6 +146,29 @@ function oop() {
         }
     }
 
+    class BankAccount {
+        #balance;
+        constructor(inName, inAccNum) {
+            this.accNum = inAccNum;
+            this.name = inName;
+            this.#balance = 0;
+        }
+
+        deposit(amount) {
+            this.#balance += amount;
+        }
+
+        withdraw(amount) {
+            if (this.#balance > amount) {
+                this.#balance -= amount;
+            }
+        }
+
+        getBalance() {
+            return this.#balance;
+        }
+    }
+
     let player1 = new Player("Jason");
     console.log(player1);
     let health = player1.getHealth();
