@@ -1,8 +1,6 @@
 document.getElementById("calculator").addEventListener("click", calculator)
 document.getElementById("to_do_list").addEventListener("click", to_do_program)
 document.getElementById("cost_calculator").addEventListener("click", costCalculator)
-document.getElementById("calculator").addEventListener("click", calculator);
-document.getElementById("to_do_list").addEventListener("click", to_do_program);
 document.getElementById("oop").addEventListener("click", oop);
 
 function calculator() {
@@ -155,3 +153,4 @@ function oop() {
     console.log(health);
     console.log(mana);
 }
+
