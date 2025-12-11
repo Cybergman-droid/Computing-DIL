@@ -1,6 +1,8 @@
-document.getElementById("calculator").addEventListener("click", calculator)
-document.getElementById("to_do_list").addEventListener("click", to_do_program)
-document.getElementById("cost_calculator").addEventListener("click", costCalculator)
+document.getElementById("calculator").addEventListener("click", calculator);
+document.getElementById("to_do_list").addEventListener("click", to_do_program);
+document
+    .getElementById("cost_calculator")
+    .addEventListener("click", costCalculator);
 document.getElementById("oop").addEventListener("click", oop);
 
 function calculator() {
@@ -83,26 +85,25 @@ function to_do_program() {
     }
 }
 
-function costCalculator(){
-    let weight  = prompt('Enter the weight')
-    let volume  = prompt('Enter the volume')
-    let cost 
-    function getCost(weight,volume){
-        if(volume < 0.3 && weight < 4){
-            cost = 5
+function costCalculator() {
+    let weight = prompt("Enter the weight");
+    let volume = prompt("Enter the volume");
+    let cost;
+    function getCost(weight, volume) {
+        if (volume < 0.3 && weight < 4) {
+            cost = 5;
         }
 
-        if(volume > weight){
-            cost = 20 * volume
+        if (volume > weight) {
+            cost = 20 * volume;
         } else {
-            cost = 2 * weight
+            cost = 2 * weight;
         }
-        
-        console.log(cost)
+
+        console.log(cost);
     }
 
-    getCost(weight,volume)
-
+    getCost(weight, volume);
 }
 function oop() {
     class Player {
@@ -153,4 +154,3 @@ function oop() {
     console.log(health);
     console.log(mana);
 }
-
