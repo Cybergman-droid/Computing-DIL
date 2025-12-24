@@ -1,3 +1,4 @@
+
 document.getElementById("calculator").addEventListener("click", calculator);
 document.getElementById("to_do_list").addEventListener("click", to_do_program);
 document
@@ -176,4 +177,146 @@ function oop() {
     let mana = player1.getMana();
     console.log(health);
     console.log(mana);
+}
+
+function bikeHire() {
+    class BikeHire {
+        #mins;
+        constructor(inCostPence) {
+            this.costPence = inCostPence;
+        }
+
+        getMins() {
+            return this.#mins;
+        }
+
+        setMins(m) {
+            if (m < 0) {
+                this.#mins = 0;
+            } else {
+                this.#mins = m;
+            }
+        }
+
+        applyDailyCap() {
+            if (this.costPence > 1500) {
+                this.costPence = 1500;
+            }
+        }
+    }
+}
+
+function busPass() {
+    class BusPass {
+        #balancePence;
+        constructor(inZone) {
+            this.zone = inZone;
+            this.#balancePence = 0;
+        }
+
+        getBalance() {
+            return this.#balancePence;
+        }
+
+        setBalance(p) {
+            if (0 <= p <= 10000) {
+                this.#balancePence = p;
+            }
+        }
+
+        tapFare() {
+            if (this.#balancePence >= 200) {
+                this.#balancePence -= 200;
+            }
+        }
+    }
+}
+
+function charityItem() {
+    class CharityItem {
+        #name;
+        #pricePence;
+        constructor(inName) {
+            this.#name = inName;
+            this.#pricePence = 0;
+        }
+
+        getName() {
+            return this.#name;
+        }
+
+        setBalance(p) {
+            if (0 <= p <= 50000) {
+                this.#pricePence = p;
+            }
+        }
+
+        discount10() {
+            this.#pricePence = Math.floor(this.#pricePence * 0.9);
+        }
+    }
+}
+
+function cafeOrder() {
+    class DrinkOrder {
+        #size;
+        constructor(inDrink) {
+            this.drink = inDrink;
+        }
+
+        getSize() {
+            return this.#size;
+        }
+
+        setSize(s) {
+            let sizes = ["small", "medium", "large"];
+            if (sizes.includes(s)) {
+                this.#size = s;
+            } else {
+                this.#size = "small";
+            }
+        }
+
+        upgrade() {
+            let sizes = ["small", "medium", "large"];
+            let index = sizes.indexOf(this.#size);
+            if (index != 2) {
+                this.#size = sizes[index + 1];
+            }
+        }
+    }
+}
+
+function tickets() {
+    class Tickets {
+        #holder;
+        #price;
+        constructor(inHolder, inPrice) {
+            this.#holder = inHolder;
+            this.#price = setPrice(inPrice);
+        }
+
+        setPrice(p) {
+            if (0 <= p <= 10000) {
+                this.#price = p;
+            }
+        }
+
+        getHolder() {
+            return this.#holder;
+        }
+
+        applyBookingFee() {
+            let newPrice = this.#price + 250;
+            if (newPrice <= 10000) {
+                this.#price = newPrice;
+            }
+        }
+    }
+
+    class VipTicket extends Tickets{
+        constructor(){
+            
+        }
+    }
 }
