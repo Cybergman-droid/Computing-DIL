@@ -5,6 +5,7 @@ document
     .getElementById("cost_calculator")
     .addEventListener("click", costCalculator);
 document.getElementById("oop").addEventListener("click", oop);
+document.getElementById("tickets").addEventListener("click", tickets);
 
 function calculator() {
     function add(a, b) {
@@ -293,7 +294,7 @@ function tickets() {
         #price;
         constructor(inHolder, inPrice) {
             this.#holder = inHolder;
-            this.#price = setPrice(inPrice);
+            this.setPrice(inPrice);
         }
 
         setPrice(p) {
@@ -314,9 +315,33 @@ function tickets() {
         }
     }
 
-    class VipTicket extends Tickets{
-        constructor(){
-            
+    class VipTicket extends Tickets {
+        #loungeAccess
+        constructor(inHolder, inPrice, inLoungeAccess) {
+            super(inHolder, inPrice);
+            this.#loungeAccess = inLoungeAccess;
+        }
+
+        setLoungeAccess(b){
+            this.#loungeAccess = b
+        }
+        getLoungeAccess(){
+            return this.#loungeAccess
+        }
+        toggleLounge(){
+            let access = this.#loungeAccess
+            this.#loungeAccess = (!access)
         }
     }
+
+    let name = prompt('Enter your name')
+    let price = prompt('Enter your ticket price')
+
+    let concert = new Tickets(name,price)
+    console.log(concert)
+
+    let vipConcert = new VipTicket(name,price,true)
+    console.log(vipConcert)
+    vipConcert.toggleLounge()
+    console.log(vipConcert)
 }
