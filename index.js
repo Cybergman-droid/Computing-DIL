@@ -5,7 +5,6 @@ document
     .getElementById("cost_calculator")
     .addEventListener("click", costCalculator);
 document.getElementById("oop").addEventListener("click", oop);
-document.getElementById("tickets").addEventListener("click", tickets);
 
 function calculator() {
     function add(a, b) {
@@ -335,7 +334,7 @@ function tickets() {
     }
 
     let name = prompt('Enter your name')
-    let price = prompt('Enter your ticket price')
+    let price = parseInt(prompt('Enter your ticket price'))
 
     let concert = new Tickets(name,price)
     console.log(concert)
