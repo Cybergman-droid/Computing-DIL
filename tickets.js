@@ -7,8 +7,11 @@
         }
 
         setPrice(p) {
-            if (0 <= p <= 10000) {
+            p = Number(p);
+            if (Number.isFinite(p) && p >= 0 && p <= 10000) {
                 this.#price = p;
+            } else {
+                console.warn('Invalid price:', p);
             }
         }
 
@@ -45,18 +48,21 @@
 
 let nameInputFld = document.getElementById('nameInputField')
 let priceInputFld = document.getElementById('priceInputField')
-let vipCheckbox = document.getElementById('nameInputField')
+let vipCheckbox = document.getElementById('vipCheckbox')
 let submitBtn = document.getElementById('submitBtn')
 
-let holderName = nameInputFld.value
-console.log(holderName)
-let price = priceInputFld.value
-let isVip = vipCheckbox.checked
 
-function createTicket(holderName,price,isVip){
-    let ticketHolder = new VipTicket(holderName,price,isVip)
+function createTicket(){
+    let holderName = nameInputFld.value.trim()
+    console.log('holderName:', holderName)
+    let price = Number(priceInputFld.value)
+    if (!Number.isFinite(price)) {
+        console.error('Please enter a valid numeric price');
+        return;
+    }
+    let isVip = vipCheckbox.checked
+    let ticketHolder = new VipTicket(holderName, price, isVip)
     console.log(ticketHolder)
 }
 
-submitBtn.addEventListener('onclick',createTicket(holderName,price,isVip))
-
+submitBtn.addEventListener('click', createTicket)
