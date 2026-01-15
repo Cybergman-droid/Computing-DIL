@@ -1,4 +1,4 @@
-
+/*
 let board = [
 ['O','X','X'],
 ['X','O','O'],
@@ -49,4 +49,32 @@ function draw(){
             }
         }
     }
+}*/
+
+/** This function sets up our sketch. */
+/** This function loads resources that will be used later. */
+
+/** This function sets up our sketch. */
+function setup() {
+    createCanvas(400, 480);
+    world.gravity.y = 10 
+    square = new Sprite (100,100,50,50,'d')
+    square.friction = 
+    floor = new Sprite(width/2,height/2,width,10,'s')
+    floor.rotation = 0
+
+    if(kb.pressed('d')){
+        new Sprite()
+    }
+
+    if(mouse.pressed()){
+        new Sprite()
+    }
 }
+/** This function redraws the sketch multiple times a second. */
+function draw() {
+    background(140)
+}
+
+
+
