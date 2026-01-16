@@ -55,26 +55,56 @@ function draw(){
 /** This function loads resources that will be used later. */
 
 /** This function sets up our sketch. */
+
+let logoImg;
+let logo;
+
+function preload() {
+logoImg = loadImage("https://imgs.search.brave.com/2PS6pXGf2fThiPRdunRqP_Azvj_lUklB1Q9yAUAlDpU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/ZnJlZXBuZ2xvZ29z/LmNvbS91cGxvYWRz/L2R2ZC1wbmcvZHZk/LWxvZ28taWNvbi1k/b3dubG9hZC1pY29u/cy0yMC5wbmc");
+
+
+}
+
 function setup() {
-    createCanvas(400, 480);
-    world.gravity.y = 10 
-    square = new Sprite (100,100,50,50,'d')
-    square.friction = 
-    floor = new Sprite(width/2,height/2,width,10,'s')
-    floor.rotation = 0
+  createCanvas(800, 450);   
+  world.gravity.y = 0;    
 
-    if(kb.pressed('d')){
-        new Sprite()
-    }
+  logo = new Sprite();
+  logo.img = logoImg;
+  logo.scale = 0.4;       
 
-    if(mouse.pressed()){
-        new Sprite()
-    }
+
+  logo.x = width / 3;
+  logo.y = height / 2;
+
+  logo.vel.x = 4;
+  logo.vel.y = 3;
+
+  logo.bounciness = 1;
+  logo.friction = 0;
+  logo.drag = 0;
+
+  logo.collideEdges = true;
 }
-/** This function redraws the sketch multiple times a second. */
+
 function draw() {
-    background(140)
+  background(0);
+
+  if (isNearCorner(logo)) {
+    tint(random(100, 255), random(100, 255), random(100, 255));
+  } else {
+    noTint();
+  }
+
 }
 
 
+function isNearCorner(s) {
+  const margin = 20;
+  const nearLeft   = s.x - s.width / 2  < margin;
+  const nearRight  = s.x + s.width / 2  > width - margin;
+  const nearTop    = s.y - s.height / 2 < margin;
+  const nearBottom = s.y + s.height / 2 > height - margin;
 
+  return (nearLeft || nearRight) && (nearTop || nearBottom);
+}
