@@ -393,3 +393,28 @@ class Spaceship{
     }
 
 }
+
+class Cell{
+    #type
+    #size
+    #energy
+    constructor(inType,inSize,inEnergy){
+        this.#type = inType
+        this.#size = inSize
+        this.#energy = inEnergy
+    }
+
+    displayInfo(){
+        console.log(this.#type)
+        console.log(this.#size)
+        console.log(this.#energy)
+    }
+
+    consumeEnergy(amount){
+        (amount > this.#energy) ? console.warn('Energy not available') : this.#energy -= amount
+    }
+
+    gainEnergy(amount){
+        this.#energy += amount
+    }
+}
