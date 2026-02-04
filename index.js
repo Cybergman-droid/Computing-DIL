@@ -344,3 +344,77 @@ function tickets() {
     vipConcert.toggleLounge()
     console.log(vipConcert)
 }
+
+class Spaceship{
+    #name
+    #model
+    #speed
+    #shieldStrength
+    constructor(inName,inModel) {
+        this.#name = inName
+        this.#model = inModel
+        this.#speed = 0
+        this.#shieldStrength = 100
+    }
+
+    getName(){
+        return this.#name
+    }
+
+    setName(inName){
+        this.#name = inName
+    }
+
+    
+    getModel(){
+        return this.#model
+    }
+
+    setModel(inModel){
+        this.#model = inModel
+    }
+
+    
+    getSpeed(){
+        return this.#speed
+    }
+
+    setSpeed(inSpeed){
+        inSpeed > 0 ? this.#name = inName : console.alert('enter a vaild speed')
+    }
+
+    
+    getShieldStrength(){
+        return this.#shieldStrength
+    }
+
+    setShieldStrength(inShieldStrength){
+        (inShieldStrength >= 0 && inShieldStrength <= 100 ) ? this.#shieldStrength = inShieldStrength : console.alert('enter a vaild sheid strength')
+    }
+
+}
+
+class Cell{
+    #type
+    #size
+    #energy
+    constructor(inType,inSize,inEnergy){
+        this.#type = inType
+        this.#size = inSize
+        this.#energy = inEnergy
+    }
+
+    displayInfo(){
+        console.log(this.#type)
+        console.log(this.#size)
+        console.log(this.#energy)
+    }
+
+    consumeEnergy(amount){
+        (amount > this.#energy) ? console.warn('Energy not available') : this.#energy -= amount
+    }
+
+    gainEnergy(amount){
+        this.#energy += amount
+    }
+}
